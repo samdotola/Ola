@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Love Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #e53935;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #e53935;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c62828;
+        }
+
+    </style>
+    <div class="container">
+        <h1>Our Love Story</h1>
+        <div class="content">
+            <p>Once upon a time...</p>
+            <p>You were the course rep</p>
+            <p>And I was the silent guy</p>
+            <p>Then we made it work</p>
+        
+        </div>
+        <div class="controls">
+
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+    <script src="script.js">
+        let currentPage = 1; // Start from page 1
+
+        document.getElementById("prevBtn").addEventListener("click", function() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById("nextBtn").addEventListener("click", function() {
+            // You can add logic here to prevent going beyond the last page
+            currentPage++;
+            showPage(currentPage);
+        });
+
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll('.content > p');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            pages[pageNumber - 1].style.display = 'block';
+        }
+
+    </script>
+</body>
+</html>
